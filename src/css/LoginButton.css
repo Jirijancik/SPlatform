@@ -1,0 +1,13 @@
+.button {
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.1), 0px 0px 2px 0px rgba(33, 0, 64, 0.4);
+          box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.1), 0px 0px 2px 0px rgba(33, 0, 64, 0.4);
+}
+
+.button__login {
+  background-color: #a6abf7;
+  outline: none;
+  border: none;
+  height: 4vw;
+  font-weight: 700;
+}
+/*# sourceMappingURL=LoginButton.css.map */

@@ -1,8 +1,9 @@
 import React from 'react';
+import '../css/RegisterButton.css'
 
 const RegisterButton: React.FC = () => {
     return (
-      <button>SIGN IN</button>
+      <button className= "button button__sign-in">SIGN IN</button>
     );
 }
 
