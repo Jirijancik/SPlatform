@@ -44,8 +44,6 @@ class RegisterForm extends React.Component<IRegisterFormProps> {
         
     }
 
-    //TODO: Pada to tady
-
  
     render(){
         return (
