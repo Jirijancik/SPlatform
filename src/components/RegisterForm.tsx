@@ -12,6 +12,7 @@ class RegisterForm extends React.Component<IRegisterFormProps> {
     constructor(props: IRegisterFormProps) {
         super(props)
         props = this.props;
+        console.log(props);
     }
 
     componentDidMount(){
@@ -22,7 +23,7 @@ class RegisterForm extends React.Component<IRegisterFormProps> {
 
         const onFocusChange = () =>{
             const arr = inputArray();
-            console.log(arr);
+           
             for(const inputItem of arr){
                 const tempPlaceholder = inputItem.placeholder;
 
@@ -40,6 +41,7 @@ class RegisterForm extends React.Component<IRegisterFormProps> {
 
     _onClick(){
         this.props.showRegisterTable(false);
+        
     }
 
     //TODO: Pada to tady
@@ -67,9 +69,9 @@ class RegisterForm extends React.Component<IRegisterFormProps> {
                     <h6>Password</h6>
                     <br></br>
                     <input className="xx" type="text" placeholder="Password Verification"></input>
-                    
+                 
                     <button className='button'>SING UP</button>
-                    <button className='button' onClick={this._onClick}>LOG IN</button>
+                    <button className='button' onClick={this._onClick.bind(this)}>LOG IN</button>
                </section>
             </Fragment>
           );
