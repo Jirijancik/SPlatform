@@ -1,8 +1,42 @@
 .xx {
-  width: 400px;
-  height: 400px;
-  display: none;
-  width: 0px;
-  height: 0px;
+  height: 4vh;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.1), 0px 0px 2px 0px rgba(33, 0, 64, 0.4);
+          box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.1), 0px 0px 2px 0px rgba(33, 0, 64, 0.4);
+  border-radius: 5px;
+  border: none;
+  outline: none !important;
+}
+
+.xx:active, .xx:focus {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(33, 0, 64, 0.2), 0px 0px 2px 0px rgba(33, 0, 64, 0.6);
+          box-shadow: 0px 0px 5px 0px rgba(33, 0, 64, 0.2), 0px 0px 2px 0px rgba(33, 0, 64, 0.6);
+}
+
+.register-table {
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.15), 0px 0px 2px 0px rgba(33, 0, 64, 0.6);
+          box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.15), 0px 0px 2px 0px rgba(33, 0, 64, 0.6);
+  width: 25vw;
+  margin-right: auto;
+  margin-left: auto;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 200px;
+  margin-top: 15vh;
+  text-align: center;
+  padding: 40px 30px;
+  background-color: rgba(212, 214, 228, 0.295);
+}
+
+.button {
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.1), 0px 0px 2px 0px rgba(33, 0, 64, 0.4);
+          box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.1), 0px 0px 2px 0px rgba(33, 0, 64, 0.4);
+  background-color: #a6abf7;
+  outline: none;
+  border: none;
+  height: 4vw;
+  font-weight: 700;
 }
 /*# sourceMappingURL=RegisterForm.css.map */

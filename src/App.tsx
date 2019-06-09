@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import './App.css';
 import LoginTable from './components/LoginTable';
-import RegisterForm from './components/RegisterForm';
 
 const App: React.FC = () => {
 
@@ -11,7 +10,6 @@ const App: React.FC = () => {
   return (
     <Fragment>
     <LoginTable></LoginTable>
-    <RegisterForm></RegisterForm>
     </Fragment>
   );
 }

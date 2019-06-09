@@ -1,9 +1,22 @@
 import React from 'react';
 import '../css/RegisterButton.css'
 
-const RegisterButton: React.FC = () => {
+
+
+interface IRegisterButtonProps {
+  showRegisterTable: (input:boolean)=>void;
+}
+
+
+const RegisterButton: React.FC<IRegisterButtonProps> = (props) => {
+
+
+  function _onClick(){
+    props.showRegisterTable(true);
+  }
+
     return (
-      <button className= "button button__sign-in">SIGN IN</button>
+      <button className= "button button__sign-in" onClick= {() => _onClick()}>SIGN IN</button>
     );
 }
 
