@@ -51,25 +51,29 @@ class RegisterForm extends React.Component<IRegisterFormProps> {
         
             <Fragment>
                 <section className = "register-table">
+                    <section className= "register-table__header-section">
+                    <h1 className="login-form__header">Register Your Account</h1>
+                    <hr className="login-form__hr"></hr>
+                    </section>
                     
-                    <h6>Name</h6>
-                    <br></br>
-                    <input className="xx" type="text" name='Name' placeholder="User Name"></input>
 
-                    <h6>Email</h6>
-                    <br></br>
-                    <input className="xx" type="text" placeholder="Email"></input>
+                    <input className="register__input register__input--name" type="text" name='Name' placeholder="User Name"></input>
+                    <input className="register__input register__input--surename" type="text" placeholder="Surename"></input>
 
-                    <h6>Password</h6>
                     <br></br>
-                    <input className="xx" type="text" placeholder="Password"></input>
 
-                    <h6>Password</h6>
+                    <input className="register__input" type="email" placeholder="Email Adress"></input>
+
                     <br></br>
-                    <input className="xx" type="text" placeholder="Password Verification"></input>
+
+                    <input className="register__input" type="password" placeholder="Password"></input>
+
+                    <br></br>
+
+                    <input className="register__input" type="password" placeholder="Password Verification"></input>
                  
-                    <button className='button'>SING UP</button>
-                    <button className='button' onClick={this._onClick.bind(this)}>LOG IN</button>
+                    <button className='register__button--sign-up'>SING UP</button>
+                    <button className='register__button--back' onClick={this._onClick.bind(this)}>BACK</button>
                </section>
             </Fragment>
           );

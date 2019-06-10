@@ -7,10 +7,14 @@ const LoginForm: React.FC = () => {
       <Fragment>
           <section className = "login-form">
             <h1 className="login-form__header">Sign In to Your Account</h1>
-            <p>How was your day?</p>
+            <hr className="login-form__hr"></hr>
+            <p className="login-form__paragraph">How was your day?</p>
           </section>
           <section>
-            <input type="email" placeholder="Your Email Adress"></input>
+            <input className="login__input" type="email" placeholder="Your Email Adress"></input>
+            <br></br>
+            <input className="login__input" type="password" placeholder="Your Password"></input>
+            <br></br>
             <LoginButton></LoginButton>
           </section>
       </Fragment>

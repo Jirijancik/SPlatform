@@ -1,35 +1,75 @@
-.xx{
-    height: 4vh;
-    box-shadow: 0px 0px 4px 0px rgba(33,0,64,0.10), 0px 0px 2px 0px rgba(33,0,64,0.40);
-    border-radius: 5px;
-   border: none;
-   outline: none !important;
-}
-.xx:active, .xx:focus{
-    box-shadow: 0px 0px 5px 0px rgba(33,0,64,0.20), 0px 0px 2px 0px rgba(33,0,64,0.60);
-}
+
 
 .register-table{
-    box-shadow: 0px 0px 4px 0px rgba(33,0,64,0.15), 0px 0px 2px 0px rgba(33,0,64,0.60);
+    box-shadow: 0px 0px 5px 0px rgba(33,0,64,0.20), 0px 0px 2px 0px rgba(1, 56, 19, 0.658);
     width: 25vw;
     margin-right: auto;
     margin-left: auto;
     display: grid;
+    grid-template-rows: 12;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-   // height: 40vh;
-    min-height: 200px;
+    height: 60vh;    min-height: 200px;
     margin-top: 15vh;
     text-align: center;
     padding: 40px 30px;
-    background-color: rgba(212, 214, 228, 0.295);
+    background-color: rgba(186, 207, 193, 0.4);
+    justify-items: center;
 }
 
 
-.button{
-    box-shadow: 0px 0px 4px 0px rgba(33,0,64,0.1), 0px 0px 2px 0px rgba(33,0,64,0.40);
-    background-color: rgb(166, 171, 247);
-outline: none;
-border: none;
-height: 4vw;
-font-weight: 700;
-} 
+.register__input{
+    grid-column: 1/-1;
+    height: 4vh;
+    width: 22.6vw;
+    box-shadow: 0px 0px 4px 0px rgba(33,0,64,0.10), 0px 0px 2px 0px rgba(33,0,64,0.40);
+    border-radius: 5px;
+     border: none;
+     outline: none !important;
+    margin: 0px;
+}
+.register__input:active, .register__input:focus{
+    box-shadow: 0px 0px 5px 0px rgba(33,0,64,0.20), 0px 0px 2px 0px rgba(1, 56, 19, 0.658);
+}
+
+.register__input--name{
+margin-top: 15px;
+width: 10vw;
+grid-column: 1/1;
+}
+.register__input--surename{
+    width: 10vw;
+    grid-column: 2/-1;
+}
+
+.register-table__header-section{
+    grid-column: 1/-1;
+}
+
+.register__button--sign-up{
+    grid-column: 1/-1;
+    grid-row: 9/ span 5;
+    box-shadow: 0px 0px 4px 0px rgba(0, 46, 10, 0.336), 0px 0px 2px 0px rgba(1, 43, 8, 0.692);
+    background-color: rgba(8, 34, 14, 0.925);
+    outline: none;
+    border: none;
+    height: 3vw;
+    margin-top: 1.2vw;
+    width: 8vw;
+    height: 2.5vw;
+    cursor: pointer;
+    font-weight: 700;
+    color: rgb(238, 226, 226);
+}
+
+.register__button--back{
+    grid-column: 1/-1;
+    background-color: transparent;
+    box-shadow: none;
+    text-decoration: underline;
+    outline: none;
+    border: none;
+    height: 2vw;
+    
+    font-weight: 700;
+    }
