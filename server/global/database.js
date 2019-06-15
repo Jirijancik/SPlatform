@@ -39,17 +39,33 @@ const updateInsertData = (data) => {
 
 db.query = util.promisify(db.query);
 
+db.select = (table, where = undefined, ...param) => {
+  let query = `SELECT * FROM ${table}`;
+
+  if (where) {
+    query += ` WHERE ${where}`;
+  }
+
+  return db.query(query, ...param);
+}
+
 db.insert = async (table, data) => {
   let query_sql = `INSERT INTO ${table} SET `;
   const updated_data = updateInsertData(data);
 
   const query = `${query_sql} ${updated_data.query}`;
-  await db.query(query, updated_data.data);
+  try {
+    await db.query(query, updated_data.data);
+  }
+  catch(e) {
+    console.log(query);
+    console.error(e);
+  }
 
   return (await db.query("SELECT LAST_INSERT_ID() as lid;"))[0]["lid"];
 }
 
-db.update = async (table, data, where = null, ...param) => {
+db.update = (table, data, where = undefined, ...param) => {
   const updated_data = updateInsertData(data);
   let query = `UPDATE ${table} SET ${updated_data.query}`;
 
@@ -57,7 +73,7 @@ db.update = async (table, data, where = null, ...param) => {
     query += ` WHERE ${where}`;
   }
 
-  await db.query(query, [...updated_data.data, ...param]);
+  return db.query(query, [...updated_data.data, ...param]);
 }
 
 db.sqlEval = (value, ...params) => {

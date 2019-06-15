@@ -34,6 +34,14 @@ app.post("/api/users/login", async (req, res) => {
   resp.print(result, res);
 });
 
+app.get('/api/users/check', async (req, res) => {
+  const reg = require("./global/users/register");
+
+  const result = await reg.check(req.query.token);
+
+  resp.print(result, res);
+});
+
 app.listen(3001, () =>
   console.log('Express server is running on localhost:3001')
 );

@@ -2,6 +2,7 @@ const validator = require('email-validator');
 const r = require("../json_data");
 const pwd = require("../users/password");
 const db = require("../database");
+const token_manager = require("./tokens");
 
 module.exports = {
     registerUser: async function (user) {
@@ -68,9 +69,18 @@ module.exports = {
 
             await db.update("user_attrs", { "updated": db.sqlEval("now()") }, "user_id = ? AND type = 5", user_id);
 
-            // Dodelat vygenerovani login tokenu
-            return r.ok();
+            //const tokens = await db.query("SELECT * FROM user_token AS ut INNER JOIN tokens AS t ON t.id = ut.t_id WHERE ut.u_id = ? AND t.expirated > now()", [user_id]);
+            const token = await token_manager.createToken(1, {user_id: user_id})
+
+            return r.ok({
+                token: token
+            });
         }
         else return r.error("user-not-exist");
+    },
+    check: async (token) => {
+        const res = await db.select("tokens", "type = 1 AND token = ?", token);
+        if (res.length > 0) return r.ok();
+        else return r.error("token-not-valid");
     }
 }
