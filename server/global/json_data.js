@@ -1,5 +1,5 @@
 
-const returnData = new Map();
+const returnData = {};
 module.exports = {
     error: (type, data = undefined) => {
         const r = {
@@ -12,19 +12,19 @@ module.exports = {
         return r;
     },
     addData: (key, value) =>{
-        returnData.set(key, value);
+        returnData[key] = value;
     },
     ok: (data = undefined) => {
         const r = {
             status: true,
             created: Date.now()
         };
-        
+
         if (data) {
             r["data"] = data;
         }
         else if (returnData.size > 0){
-            r["data"] = Array.from(returnData);
+            r["data"] = returnData;
         }
 
         return r;
