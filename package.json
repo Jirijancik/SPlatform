@@ -8,9 +8,11 @@
     "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4",
     "bcrypt": "^3.0.6",
+    "cors": "^2.8.5",
     "crypto-js": "^3.1.9-1",
     "dotenv": "^8.0.0",
     "email-validator": "2.0.4",
+    "moment": "2.24.0",
     "mysql": "^2.17.1",
     "promise-defer": "1.0.0",
     "react": "^16.8.6",
@@ -19,13 +21,12 @@
     "react-scripts": "3.0.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "typescript": "3.5.1",
-    "moment": "2.24.0"
+    "typescript": "3.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "npm-install": "npm install",
     "eject": "react-scripts eject",
     "server": "node-env-run server --exec nodemon | pino-colada",
     "dev": "run-p server start"

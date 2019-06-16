@@ -4,9 +4,13 @@ const express = require('express');
 //const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 const db = require("./global/database");
+var cors = require('cors')
+
+
 
 const app = express();
-
+app.use(cors());
+app.options('*', cors());
 //app.use(bodyParser);
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -20,6 +24,7 @@ app.get('/api/greeting', async (req, res) => {
 
 app.post("/api/users/register", async (req, res) => {
   const reg = require("./global/users/register");
+  console.log(req.body);
 
   const result = await reg.registerUser(req.body);
 
