@@ -40,7 +40,6 @@
 }
 
 .register__input--name {
-  margin-top: 15px;
   width: 10vw;
   -ms-grid-column: 1;
   grid-column: 1/1;
