@@ -1,5 +1,6 @@
 import React, { Fragment, FormEvent } from 'react';
 import LoginButton from './LoginButton';
+import Input from './Input';
 import '../css/LoginForm.css'
 
 const getInputs = () => {
@@ -49,12 +50,29 @@ const LoginForm: React.FC = () => {
             <hr className="login-form__hr"></hr>
             <p className="login-form__paragraph">How was your day?</p>
           </section>
+
+          
           <form onSubmit={handleOnSubmit}>
-            <input onKeyPress={handleKeyPress} className="login__input email" type="email" placeholder="Your Email Adress"></input>
+            <Input 
+            className={"login__input email"}
+            placeholder={"Your Email Adress"}
+            type={"email"}
+            handleOnSubmit={handleOnSubmit}
+            ></Input>
+
             <br></br>
-            <input className="login__input password" type="password" placeholder="Your Password"></input>
+
+            <Input 
+            className={"login__input password"}
+            placeholder={"Your Password?"}
+            type={"password"}
+            handleOnSubmit={handleOnSubmit}
+            ></Input>
+
             <br></br>
+
             <p className="error-msg"></p>
+
             <LoginButton onSubmit={handleOnSubmit}></LoginButton>
           </form>
       </Fragment>

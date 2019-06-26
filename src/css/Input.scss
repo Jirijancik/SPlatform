@@ -1,0 +1,23 @@
+.register__input{
+    grid-column: 1/-1;
+    height: 4vh;
+    width: 22.6vw;
+    box-shadow: 0px 0px 4px 0px rgba(33,0,64,0.10), 0px 0px 2px 0px rgba(33,0,64,0.40);
+    border-radius: 5px;
+     border: none;
+     outline: none !important;
+    margin: 0px;
+}
+.register__input:active, .register__input:focus{
+    box-shadow: 0px 0px 5px 0px rgba(33,0,64,0.20), 0px 0px 2px 0px rgba(1, 56, 19, 0.658);
+}
+
+.register__input--name{
+//margin-top: 15px;
+width: 10vw;
+grid-column: 1/1;
+}
+.register__input--surename{
+    width: 10vw;
+    grid-column: 2/-1;
+}
