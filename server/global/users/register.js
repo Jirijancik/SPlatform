@@ -3,6 +3,7 @@ const r = require("../json_data");
 const pwd = require("../users/password");
 const db = require("../database");
 const token_manager = require("./tokens");
+const session = require('express-session');
 
 module.exports = {
     registerUser: async function (user) {

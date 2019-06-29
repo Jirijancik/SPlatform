@@ -3,13 +3,26 @@ const resp = require("./global/json_data");
 const express = require('express');
 //const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
-const db = require("./global/database");
+//const session = require('express-session');
+const cors = require("cors");
 
 const app = express();
 
+//const router = express.Router();
+
 //app.use(bodyParser);
 //app.use(bodyParser.urlencoded({ extended: false }));
+app.set('trust proxy', 1) // trust first proxy
+// app.use(session({
+//   secret: 'keyboard cat',
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { secure: false } // secure: true - only https
+// }))
+
+app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded());
 app.use(pino);
 
 app.get('/api/greeting', async (req, res) => {
