@@ -9,36 +9,22 @@ const getInputs = () => {
   return [x, y];
 }
 
-const handleOnSubmit = (event:FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>) => {
-  event.preventDefault();
-  let x,y;
-  [x,y] = getInputs();
-
-  if(x!=null && y!=null){
-    console.log("is Empty");
-    console.log(x);
-    console.log(y.value);
-    validateImputs(x,y);
+const handleOnSubmit = (event:FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement> | HTMLInputElement) => {
+  
+  if (!(event instanceof HTMLInputElement)) {
+    event.preventDefault();
+    // Do Stuff
   }
+  // TODO: send data to server
+  console.log("data sent to serever");
 };
 
-const validateImputs = (x:HTMLInputElement, y:HTMLInputElement) => {
-  if (x.value=="" && y.value=="") {
-    console.log("proslo")
-    x.classList.add("empty-required-fields");
-    y.classList.add("empty-required-fields");
-  }
-}
 
-const handleKeyPress = () =>{
-  let x,y;
-  [x,y] = getInputs();
-  if(x!=null && y!=null){
-    if (x.value!=="" && y.value!=="") {
-      x.classList.remove("empty-required-fields");
-      y.classList.remove("empty-required-fields");
-    }
-  }
+
+const validateInput = (validState:boolean) =>{
+ if(validState){
+   
+ }
 }
 
 
@@ -57,7 +43,7 @@ const LoginForm: React.FC = () => {
             className={"login__input email"}
             placeholder={"Your Email Adress"}
             type={"email"}
-            handleOnSubmit={handleOnSubmit}
+            handleOnSubmit={validateInput}
             ></Input>
 
             <br></br>
@@ -66,7 +52,7 @@ const LoginForm: React.FC = () => {
             className={"login__input password"}
             placeholder={"Your Password?"}
             type={"password"}
-            handleOnSubmit={handleOnSubmit}
+            handleOnSubmit={validateInput}
             ></Input>
 
             <br></br>
