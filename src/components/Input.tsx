@@ -8,7 +8,7 @@ interface IProps {
   name?:string;
   placeholder:string;     
   type: string;
-  handleOnSubmit:(event: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement> | HTMLInputElement) => void;
+  handleOnSubmit: (validationFunction: Function) => boolean;
 }
 
 interface IState{
@@ -31,26 +31,20 @@ class Input extends React.Component<IProps,IState> {
       console.log("NEproslo")
       console.log(input.value)
       input.classList.add("empty-required-fields");
-      input.classList.add("empty-required-fields");
       this.setState({isValid:false});
+      return this.state.isValid;
     }
     else{
       console.log(input.value)
       console.log("proslo")
       this.setState({isValid:true});
+      input.classList.remove("empty-required-fields");
+      return this.state.isValid;
     }
   }
-
-  xhandleOnSubmit = (input:HTMLInputElement) =>{
-    console.log("validanting inputs")
-    this.validateImputs(input);
-    console.log("validated")
-    if(this.state.isValid)
-    this.props.handleOnSubmit(input);
-  }
-
+  
   render() {
-
+    
       return (
 
         <Fragment>
@@ -58,7 +52,7 @@ class Input extends React.Component<IProps,IState> {
           className={this.props.className}
           placeholder={this.props.placeholder}
           type={this.props.type}
-          onSubmit={(e) => this.xhandleOnSubmit(e.currentTarget)}
+          
           >
           </input>
         </Fragment>

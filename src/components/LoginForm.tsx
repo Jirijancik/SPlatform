@@ -4,9 +4,12 @@ import Input from './Input';
 import '../css/LoginForm.css'
 
 const getInputs = () => {
-  let x = document.querySelector(".login__input.email") as HTMLInputElement;
-  let y = document.querySelector(".login__input.password") as HTMLInputElement;
-  return [x, y];
+  const form:Input = document.querySelector("form")!;
+  let inputs:Array<Input> = [];
+  for(let input of form){
+    inputs.push(input)
+  }
+  return inputs;
 }
 
 const handleOnSubmit = (event:FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement> | HTMLInputElement) => {
@@ -15,16 +18,22 @@ const handleOnSubmit = (event:FormEvent<HTMLFormElement> | FormEvent<HTMLButtonE
     event.preventDefault();
     // Do Stuff
   }
+  const inputs = getInputs();
+  for(let input in inputs){
+    input.validateImputs();
+  }
   // TODO: send data to server
   console.log("data sent to serever");
 };
 
 
 
-const validateInput = (validState:boolean) =>{
+const validateInput = (validationFunction:Function) =>{
+  const validState = validationFunction;
  if(validState){
-   
+   return true
  }
+ return false;
 }
 
 
