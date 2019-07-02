@@ -3,74 +3,84 @@ import LoginButton from './LoginButton';
 import Input from './Input';
 import '../css/LoginForm.css'
 
-const getInputs = () => {
-  const form:HTMLFormElement = document.querySelector("form")!;
-  let inputs:Array<Element> = [];
-  for(let input of form){
-    inputs.push(input)
-  }
-  return inputs;
+
+
+interface IState {
+  inputIsValid: boolean;
 }
 
-const handleOnSubmit = (event:FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>) => {
-  
+class LoginForm extends React.Component<{}, IState>{
 
-  event.preventDefault();
+  constructor(props: any) {
+    super(props);
 
-  const inputs = getInputs();
-  for(let input of inputs){
-    input.validateImputs();
+    this.state = {
+      inputIsValid: true
+    };
   }
-  // TODO: send data to server
-  console.log("data sent to serever");
-};
+
+
+  getInputs() {
+    const inputs: HTMLFormElement = document.querySelector("form")!;
+    return inputs.children
+  }
+
+  handleOnSubmit(event: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    console.log(this.inputArray);
+    for (let input of this.inputArray) {
+      console.log(input);
+    }
+    // TODO: send data to server
+    console.log("data sent to serever");
+  };
 
 
 
-const validateInput = (isValidState:boolean) =>{
-  
- if(isValidState){
-   return true
- }
- return false;
-}
+  validateInputState(isValidState: boolean) {
+    this.setState({ inputIsValid: isValidState });
+
+  }
+
+  inputArray = [
+    <Input
+      className={"login__input email"}
+      placeholder={"Your Email Adress"}
+      type={"email"}
+      validityChange={this.validateInputState.bind(this)}
+    ></Input>
+    ,
+    <Input
+      className={"login__input password"}
+      placeholder={"Your Password?"}
+      type={"password"}
+      validityChange={this.validateInputState.bind(this)}
+    ></Input>
+
+  ]
 
 
-const LoginForm: React.FC = () => {
+  render() {
     return (
       <Fragment>
-          <section className = "login-form">
-            <h1 className="login-form__header">Sign In to Your Account</h1>
-            <hr className="login-form__hr"></hr>
-            <p className="login-form__paragraph">How was your day?</p>
-          </section>
+        <section className="login-form">
+          <h1 className="login-form__header">Sign In to Your Account</h1>
+          <hr className="login-form__hr"></hr>
+          <p className="login-form__paragraph">How was your day?</p>
+        </section>
 
-          
-          <form onSubmit={handleOnSubmit}>
-            <Input 
-            className={"login__input email"}
-            placeholder={"Your Email Adress"}
-            type={"email"}
-            handleOnSubmit={validateInput}
-            ></Input>
 
-            <br></br>
+        <form onSubmit={this.handleOnSubmit.bind(this)}>
 
-            <Input 
-            className={"login__input password"}
-            placeholder={"Your Password?"}
-            type={"password"}
-            handleOnSubmit={validateInput}
-            ></Input>
+          {this.inputArray.map(item=>item)}
 
-            <br></br>
+          <p className="error-msg"></p>
 
-            <p className="error-msg"></p>
-
-            <LoginButton onSubmit={handleOnSubmit}></LoginButton>
-          </form>
+          <LoginButton onSubmit={this.handleOnSubmit.bind(this)}></LoginButton>
+        </form>
       </Fragment>
     );
+  }
 }
 
 
