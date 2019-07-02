@@ -8,7 +8,7 @@ interface IProps {
   name?:string;
   placeholder:string;     
   type: string;
-  handleOnSubmit: (validationFunction: Function) => boolean;
+  handleOnSubmit: (isValidState: boolean) => boolean
 }
 
 interface IState{
@@ -19,7 +19,7 @@ class Input extends React.Component<IProps,IState> {
 
 
   constructor(props: any) {
-    super(props);
+    super(props as any);
 
     this.state = {
       isValid: true
@@ -42,6 +42,8 @@ class Input extends React.Component<IProps,IState> {
       return this.state.isValid;
     }
   }
+
+  handleOnSubmit(this.state.isValid);
   
   render() {
     

@@ -4,22 +4,21 @@ import Input from './Input';
 import '../css/LoginForm.css'
 
 const getInputs = () => {
-  const form:Input = document.querySelector("form")!;
-  let inputs:Array<Input> = [];
+  const form:HTMLFormElement = document.querySelector("form")!;
+  let inputs:Array<Element> = [];
   for(let input of form){
     inputs.push(input)
   }
   return inputs;
 }
 
-const handleOnSubmit = (event:FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement> | HTMLInputElement) => {
+const handleOnSubmit = (event:FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>) => {
   
-  if (!(event instanceof HTMLInputElement)) {
-    event.preventDefault();
-    // Do Stuff
-  }
+
+  event.preventDefault();
+
   const inputs = getInputs();
-  for(let input in inputs){
+  for(let input of inputs){
     input.validateImputs();
   }
   // TODO: send data to server
@@ -28,9 +27,9 @@ const handleOnSubmit = (event:FormEvent<HTMLFormElement> | FormEvent<HTMLButtonE
 
 
 
-const validateInput = (validationFunction:Function) =>{
-  const validState = validationFunction;
- if(validState){
+const validateInput = (isValidState:boolean) =>{
+  
+ if(isValidState){
    return true
  }
  return false;
