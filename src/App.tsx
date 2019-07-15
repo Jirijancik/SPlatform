@@ -6,7 +6,7 @@ import {signIn} from './redux/actions'
 
 const App: React.FC = () => {
 
-  const counter = useSelector(state => state.counter);
+  const counter = useSelector(state => (state as any).counter);
   const dispatch = useDispatch();
 
 //TODO: přepsat na class component - asi
