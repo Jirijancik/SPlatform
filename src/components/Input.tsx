@@ -8,7 +8,7 @@ interface IProps {
   name?:string;
   placeholder:string;     
   type: string;
-  validityChange: (isValidState: boolean) => void
+//  validityChange: (isValidState: boolean) => void
 }
 
 interface IState{
@@ -55,14 +55,14 @@ class Input extends React.Component<IProps,IState> {
   }
   
 
-  componentDidUpdate(prevProps:IProps, prevState:IState) {
-    if (this.state.isValid !== prevState.isValid) {
-      this.props.validityChange(this.state.isValid);
-    }
-  }
+  // componentDidUpdate(prevProps:IProps, prevState:IState) {
+  //   if (this.state.isValid !== prevState.isValid) {
+  //     this.props.validityChange(this.state.isValid);
+  //   }
+  // }
   
   render() {
-    this.props.validityChange(this.state.isValid);
+   // this.props.validityChange(this.state.isValid);
       return (
 
         <Fragment>

@@ -21,40 +21,59 @@ class LoginForm extends React.Component<{}, IState>{
 
 
   getInputs() {
-    const inputs: HTMLFormElement = document.querySelector("form")!;
-    return inputs.children
+    return document.querySelectorAll(".login__input")!; 
   }
 
   handleOnSubmit(event: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>) {
+    this.validateInputs()
     event.preventDefault();
-    console.log(this.inputArray);
-    for (let input of this.inputArray) {
-      console.log(input);
-    }
-    // TODO: send data to server
-    console.log("data sent to serever");
+    // console.log(this.inputArray);
+    // for (let input of this.inputArray) {
+    //   console.log(input);
+    //   console.log(input.props.type);
+    // }
+    // // TODO: send data to server
+    // console.log("data sent to serever");
   };
 
 
 
-  validateInputState(isValidState: boolean) {
-    this.setState({ inputIsValid: isValidState });
+  validateInputs() {
+    const inputs = this.getInputs();
+    console.log(inputs);
+    for (const input of inputs) {
+      this.validateInput(input);
+    }
 
   }
+
+  validateInput(element:Element){
+    console.log(element.attributes[2].value);
+    if(element.attributes[2].value !== "email"){
+      // switch(element){
+      //   // case "email":
+      //   //     return true;
+      // }
+      var x = element.attributes[2].value;
+      console.log(x + " is not email");
+   
+    }
+  }
+
 
   inputArray = [
     <Input
       className={"login__input email"}
       placeholder={"Your Email Adress"}
       type={"email"}
-      validityChange={this.validateInputState.bind(this)}
+
     ></Input>
     ,
     <Input
       className={"login__input password"}
       placeholder={"Your Password?"}
       type={"password"}
-      validityChange={this.validateInputState.bind(this)}
+
     ></Input>
 
   ]
