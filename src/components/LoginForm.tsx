@@ -40,24 +40,23 @@ class LoginForm extends React.Component<{}, IState>{
 
   validateInputs() {
     const inputs = this.getInputs();
-    console.log(inputs);
+ //   console.log(inputs);
     for (const input of inputs) {
-      this.validateInput(input);
+      let validatedInput = this.validateInput(input);
     }
 
   }
 
   validateInput(element:Element){
     console.log(element.attributes[2].value);
-    if(element.attributes[2].value !== "email"){
-      // switch(element){
-      //   // case "email":
-      //   //     return true;
-      // }
-      var x = element.attributes[2].value;
-      console.log(x + " is not email");
-   
+    if(element.nodeValue=""){
+      return false;
     }
+
+    // if(element.attributes[2].value !== "email"){
+    //   var x = element.attributes[2].value;
+    //   console.log(x + " is not email");
+    // }
   }
 
 
