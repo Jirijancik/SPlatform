@@ -20,62 +20,35 @@ class LoginForm extends React.Component<{}, IState>{
   }
 
 
-  getInputs() {
-    return document.querySelectorAll(".login__input")!; 
-  }
+  values:Map<string,{value:any, isValid:boolean}> = new Map;
 
   handleOnSubmit(event: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>) {
-    this.validateInputs()
     event.preventDefault();
-    // console.log(this.inputArray);
-    // for (let input of this.inputArray) {
-    //   console.log(input);
-    //   console.log(input.props.type);
-    // }
-    // // TODO: send data to server
-    // console.log("data sent to serever");
+
   };
 
 
-
-  validateInputs() {
-    const inputs = this.getInputs();
- //   console.log(inputs);
-    for (const input of inputs) {
-      let validatedInput = this.validateInput(input);
+  getIsValid(name:string, defaultIsValid:boolean=true){
+    const _name = this.values.get(name);
+    if(_name){
+      return _name.isValid;
     }
-
+    return defaultIsValid;
   }
 
-  validateInput(element:Element){
-    console.log(element.attributes[2].value);
-    if(element.nodeValue=""){
+  onChange=(value:any, name:string)=>{
+    const isValid = this.validateInput(value, name);
+    this.setState({inputIsValid:isValid});
+    this.values.set(name, {value, isValid});
+  }
+
+
+  validateInput(value:any, name:string){
+    if(value==="" || !value){
       return false;
     }
-
-    // if(element.attributes[2].value !== "email"){
-    //   var x = element.attributes[2].value;
-    //   console.log(x + " is not email");
-    // }
+    return true;
   }
-
-
-  inputArray = [
-    <Input
-      className={"login__input email"}
-      placeholder={"Your Email Adress"}
-      type={"email"}
-
-    ></Input>
-    ,
-    <Input
-      className={"login__input password"}
-      placeholder={"Your Password?"}
-      type={"password"}
-
-    ></Input>
-
-  ]
 
 
   render() {
@@ -90,7 +63,21 @@ class LoginForm extends React.Component<{}, IState>{
 
         <form onSubmit={this.handleOnSubmit.bind(this)}>
 
-          {this.inputArray.map(item=>item)}
+        <Input
+          name="email"
+          placeholder="Your Email Adress"
+          type="email"
+          onChange={this.onChange}
+          isValid={this.state.inputIsValid?true:this.getIsValid("email")}
+        ></Input>
+        
+        <Input
+          name="password"
+          placeholder="Your Password?"
+          type="password"
+          onChange={this.onChange}
+          isValid={this.state.inputIsValid?true:this.getIsValid("password")}
+        ></Input>
 
           <p className="error-msg"></p>
 

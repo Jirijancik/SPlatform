@@ -14,8 +14,8 @@ const App: React.FC = () => {
 
   return (
     <Fragment>
-          <h1>Counter {counter}</h1>
-          <button onClick={() => dispatch(signIn())}>+</button>
+           {/* <h1>Counter {counter}</h1>
+          <button onClick={() => dispatch(signIn())}>+</button> */}
     <LoginTable></LoginTable>
     </Fragment>
   );

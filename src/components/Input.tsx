@@ -3,81 +3,41 @@ import '../css/Input.css'
 
 
 interface IProps {
-  value?: string;
-  className: string;      //TODO: Možná udělat něaký Enum kde budou typy inputu a podle toho si to samo dá předdefinovaný className??
-  name?:string;
+  value?: any;
+  name:string;
   placeholder:string;     
   type: string;
-//  validityChange: (isValidState: boolean) => void
+  isValid?: boolean;
+  onChange?:(value:any, name:string)=>void;
 }
 
-interface IState{
-  isValid:boolean;
-}
-
-class Input extends React.Component<IProps,IState> {
 
 
-  constructor(props: IProps) {
-    super(props);
-
-    this.state = {
-      isValid: true
-    };
-  }
-
-  public get IsValid(){
-    return this.state.isValid;
-  }
-
-  validateInput(input:HTMLInputElement){
-    if (input.value=="" || !input.validity.valid) {
- 
-      input.classList.add("empty-required-fields");
-      this.setState({isValid:false});
-    }
-    else{
-
-      this.setState({isValid:true});
-      input.classList.remove("empty-required-fields");
-    }
-  }
-
-  handleOnBlur(event:React.FocusEvent<HTMLInputElement>){
-
-    if(!event){
-
-      return
-    }
- 
-    this.validateInput(event.target as HTMLInputElement);
-    
-  }
+const Input: React.FC<IProps> = ({value, name, placeholder, type, isValid=true, onChange }) => {
   
 
-  // componentDidUpdate(prevProps:IProps, prevState:IState) {
-  //   if (this.state.isValid !== prevState.isValid) {
-  //     this.props.validityChange(this.state.isValid);
-  //   }
-  // }
-  
-  render() {
-   // this.props.validityChange(this.state.isValid);
+
+  const handleOnChange = (e:any)=>{
+    if(onChange)
+      onChange(e.target.value, name)
+  }
+
       return (
+
 
         <Fragment>
           <input 
-          onBlur={e=>this.handleOnBlur(e)}
-          className={this.props.className}
-          placeholder={this.props.placeholder}
-          type={this.props.type}
-          
+          value={value}
+          placeholder={placeholder}
+          type={type}
+          onChange={e=>handleOnChange(e)}
+          name={name}
+          className={isValid?"register__input register__input--name":"register__input register__input--name x"}
           >
           </input>
+          {console.log(isValid)}
         </Fragment>
       )
-  }
-
 }
 
 
