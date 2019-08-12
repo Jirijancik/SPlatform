@@ -1,6 +1,6 @@
 .register-table {
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(33, 0, 64, 0.2), 0px 0px 2px 0px rgba(1, 56, 19, 0.658);
-          box-shadow: 0px 0px 5px 0px rgba(33, 0, 64, 0.2), 0px 0px 2px 0px rgba(1, 56, 19, 0.658);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(33, 0, 64, 0.116), 0px 0px 2px 0px rgba(45, 1, 56, 0.404);
+          box-shadow: 0px 0px 5px 0px rgba(33, 0, 64, 0.116), 0px 0px 2px 0px rgba(45, 1, 56, 0.404);
   width: 25vw;
   margin-right: auto;
   margin-left: auto;
@@ -13,41 +13,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 60vh;
-  min-height: 200px;
+  height: 40rem;
   margin-top: 15vh;
   text-align: center;
   padding: 40px 30px;
-  background-color: rgba(186, 207, 193, 0.4);
+  background-color: white;
   justify-items: center;
-}
-
-.register__input {
-  grid-column: 1/-1;
-  height: 4vh;
-  width: 22.6vw;
-  -webkit-box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.1), 0px 0px 2px 0px rgba(33, 0, 64, 0.4);
-          box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.1), 0px 0px 2px 0px rgba(33, 0, 64, 0.4);
-  border-radius: 5px;
-  border: none;
-  outline: none !important;
-  margin: 0px;
-}
-
-.register__input:active, .register__input:focus {
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(33, 0, 64, 0.2), 0px 0px 2px 0px rgba(1, 56, 19, 0.658);
-          box-shadow: 0px 0px 5px 0px rgba(33, 0, 64, 0.2), 0px 0px 2px 0px rgba(1, 56, 19, 0.658);
-}
-
-.register__input--name {
-  width: 10vw;
-  -ms-grid-column: 1;
-  grid-column: 1/1;
-}
-
-.register__input--surename {
-  width: 10vw;
-  grid-column: 2/-1;
 }
 
 .register-table__header-section {
@@ -82,6 +53,7 @@
   outline: none;
   border: none;
   height: 2vw;
+  cursor: pointer;
   font-weight: 700;
 }
 /*# sourceMappingURL=RegisterForm.css.map */

@@ -32,7 +32,7 @@ const Input: React.FC<IProps> = ({value, name, placeholder, type, isValid=true, 
           type={type}
           onChange={e=>handleOnChange(e)}
           name={name}
-          className={isValid?"register__input register__input--name":"register__input register__input--name x"}
+          className={isValid?"register__input register__input":"register__input register__input register_input--not-valid"}
           >
           </input>
           {console.log(isValid)}

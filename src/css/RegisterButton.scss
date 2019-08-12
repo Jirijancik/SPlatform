@@ -1,12 +1,17 @@
 
 
 .button__sign-in{
+position:relative;
+display: block;
+margin-left: auto;
+margin-right: auto;
 background-color: transparent;
 box-shadow: none;
 text-decoration: underline;
 outline: none;
 border: none;
 height: 2vw;
-
+cursor: pointer;
+width: 5rem;
 font-weight: 700;
 }

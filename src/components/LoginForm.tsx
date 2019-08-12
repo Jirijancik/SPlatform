@@ -70,6 +70,8 @@ class LoginForm extends React.Component<{}, IState>{
           onChange={this.onChange}
           isValid={this.state.inputIsValid?true:this.getIsValid("email")}
         ></Input>
+
+        <br></br>
         
         <Input
           name="password"

@@ -1,7 +1,8 @@
 .button__login {
-  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 46, 10, 0.336), 0px 0px 2px 0px rgba(1, 43, 8, 0.692);
-          box-shadow: 0px 0px 4px 0px rgba(0, 46, 10, 0.336), 0px 0px 2px 0px rgba(1, 43, 8, 0.692);
-  background-color: rgba(8, 34, 14, 0.925);
+  grid-column: 1/-1;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.212), 0px 0px 2px 0px rgba(45, 2, 56, 0.349);
+          box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.212), 0px 0px 2px 0px rgba(45, 2, 56, 0.349);
+  background: black;
   outline: none;
   border: none;
   height: 3vw;
@@ -13,19 +14,10 @@
   color: #eee2e2;
 }
 
-.login__input {
-  height: 4vh;
-  width: 14vw;
-  -webkit-box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.1), 0px 0px 2px 0px rgba(33, 0, 64, 0.4);
-          box-shadow: 0px 0px 4px 0px rgba(33, 0, 64, 0.1), 0px 0px 2px 0px rgba(33, 0, 64, 0.4);
-  border-radius: 5px;
-  border: none;
-  outline: none !important;
-  margin: 15px;
-}
-
-.login__input:active, .login__input:focus {
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(33, 0, 64, 0.2), 0px 0px 2px 0px rgba(1, 56, 19, 0.658);
-          box-shadow: 0px 0px 5px 0px rgba(33, 0, 64, 0.2), 0px 0px 2px 0px rgba(1, 56, 19, 0.658);
+.button__login:active {
+  color: black;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 /*# sourceMappingURL=LoginButton.css.map */

@@ -1,7 +1,24 @@
 
-body{
+html{
     height: 100%;
-    background-image: url("./images/LoginBackground.jpg");
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover;
+}
+
+body{
+    background: linear-gradient(10deg, #9d3cf2 0%,#ff6f0f 100%);
+    background-size: 200%;
+    margin: 0;
+    background-position: left;
+    animation: bg-animation 5s infinite alternate;
+}
+
+@keyframes bg-animation{
+    0%{
+        background-position: left;
+    }
+    50%{
+        background-position: right;
+    }
+    100%{
+        background-position: left;
+    }
 }

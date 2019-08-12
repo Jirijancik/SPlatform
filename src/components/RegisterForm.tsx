@@ -117,7 +117,7 @@ class RegisterForm extends React.Component<IRegisterFormProps, IRegisterFormStat
 
                     <input className="register__input" type="password" placeholder="Password Verification"></input>
 
-                    <button className='register__button--sign-up'>SING UP</button>
+                    <button className='button__login'>SING UP</button>
                     <button className='register__button--back' onClick={this._onClick.bind(this)}>BACK</button>
                 </form>
             </Fragment>
