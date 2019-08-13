@@ -4,11 +4,11 @@ html{
 }
 
 body{
-    background: linear-gradient(10deg, #9d3cf2 0%,#ff6f0f 100%);
-    background-size: 200%;
+    background: linear-gradient(10deg,#3845ff 0%, #9b29ff 40%,#ff7315 100%);
+    background-size: 300%;
     margin: 0;
-    background-position: left;
-    animation: bg-animation 5s infinite alternate;
+    background-position: bottom;
+    animation: bg-animation 15s infinite alternate;
 }
 
 @keyframes bg-animation{
@@ -16,9 +16,9 @@ body{
         background-position: left;
     }
     50%{
-        background-position: right;
+        background-position: bottom;
     }
     100%{
-        background-position: left;
+        background-position: right;
     }
 }

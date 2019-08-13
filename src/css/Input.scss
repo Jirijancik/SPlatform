@@ -2,12 +2,13 @@
 .register__input{
     grid-column: 1/-1;
     font-family: 'Roboto Condensed', sans-serif;
-    height: 6vh;
+    height: 3rem;
     font-size: 19px;
     color: black;
     
-    width: 25rem;
+    width: 22rem;
     border: none;
+    border-bottom: 1px solid black;
     outline: none !important;
     background-color: transparent;
     font-weight: 400;
@@ -16,14 +17,6 @@
 
 .register__input:active, .register__input:focus{
 
-}
-
-.register__input::after {
-    content: "";
-    display: block;
-    padding: 2px 0;
-    line-height: 1px;
-    border-top: 6px solid rgb(0, 0, 0); 
 }
 
 .register__input::placeholder { /* Firefox, Chrome, Opera */ 
@@ -41,11 +34,11 @@
 
 .register__input--name{
 width: 10vw;
-grid-column: 1/-1;
+grid-column: 1/2;
 }
 .register__input--surename{
     width: 10vw;
-    grid-column: 1/-1;
+    grid-column: 2/-1;
 }
 
 

@@ -24,7 +24,6 @@ class LoginForm extends React.Component<{}, IState>{
 
   handleOnSubmit(event: FormEvent<HTMLFormElement> | FormEvent<HTMLButtonElement>) {
     event.preventDefault();
-
   };
 
 
